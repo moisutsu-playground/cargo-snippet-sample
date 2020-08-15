@@ -1,4 +1,5 @@
 use cargo_snippet::snippet;
+
 use std::ops::*;
 
 #[snippet(name = "@gcd", prefix = "use std::ops::*;")]
@@ -6,18 +7,14 @@ fn gcd<T>(a: T, b: T) -> T
 where
     T: Copy + Ord + Sub<Output = T> + Rem<Output = T>,
 {
-    if a < b {
-        return gcd(b, a);
-    }
-    let (mut a, mut b) = (a, b);
-    let mut r: T;
+    let (mut a, mut b) = if a < b { (b, a) } else { (a, b) };
     let zero = a - a;
-    while a % b != zero {
-        r = a % b;
+    while b > zero {
+        let r = a % b;
         a = b;
         b = r;
     }
-    b
+    a
 }
 
 #[snippet(name = "@lcm", include = "@gcd")]
