@@ -4,4 +4,5 @@
 
 mod io;
 mod joins;
+mod math;
 mod yes_no;
