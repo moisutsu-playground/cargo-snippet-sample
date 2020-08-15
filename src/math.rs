@@ -29,7 +29,8 @@ where
 fn test_gcd() {
     assert_eq!(gcd(5i128, 5i128), 5i128);
     assert_eq!(gcd(12, 3), 3);
-    assert_eq!(gcd(97usize, 17usize), 1usize)
+    assert_eq!(gcd(97usize, 17usize), 1usize);
+    assert_eq!(gcd(1u128, 1u128), 1u128);
 }
 
 #[test]
