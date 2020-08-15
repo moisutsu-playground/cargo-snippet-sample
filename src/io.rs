@@ -62,3 +62,10 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
+
+#[snippet(name = "@flush", prefix = "use std::io::{stdout, Write};")]
+macro_rules! flush {
+    () => {
+        stdout().flush().unwrap();
+    };
+}
